@@ -1,0 +1,2 @@
+# PTE_PAPER_2023
+Scripts, Raw Data &amp; analysis files for "ORIGIN OF EVOLUTIONARY BIFURCATION IN AN ENZYME"
