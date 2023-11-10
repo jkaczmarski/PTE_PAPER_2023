@@ -174,7 +174,7 @@ def find_min_Rfrees(parentdir, best_nums):
     os.chdir(parentdir)
     print(parentdir)
     data_list = []
-    rep_dirs = [i for i in os.listdir() if os.path.isdir(i) and ('replicate' in i) ]
+    rep_dirs = [i for i in os.listdir() if os.path.isdir(i) and ('replicate' in i) and (i != 'best_replicates')]
     for i in rep_dirs:
         print (i)
         os.chdir(str(i))

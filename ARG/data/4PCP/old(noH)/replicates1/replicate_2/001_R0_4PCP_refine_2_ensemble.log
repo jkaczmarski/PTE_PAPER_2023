@@ -1,0 +1,293 @@
+
+USER = jkaczmarski
+PID = 97027
+Date 2020-12-25 Time 10:40:31 AEDT +1100 (1608853231.70 s)
+
+-------------------------------------------------------------------------------
+phenix.ensemble_refinement
+-------------------------------------------------------------------------------
+
+
+======================== Ensemble refinement parameters =======================
+
+input {
+  xray_data {
+    file_name = /store/jkaczmarski/PTE_Ensemble_Refine/Campbell2016/001_R0_4PCP/input/001_R0_4PCP_refine_2.mtz
+    labels = None
+    high_resolution = None
+    low_resolution = None
+    outliers_rejection = True
+    french_wilson_scale = True
+    french_wilson {
+      max_bins = 60
+      min_bin_size = 40
+    }
+    sigma_fobs_rejection_criterion = None
+    sigma_iobs_rejection_criterion = None
+    ignore_all_zeros = True
+    force_anomalous_flag_to_be_equal_to = None
+    convert_to_non_anomalous_if_ratio_pairs_lone_less_than_threshold = 0.5
+    r_free_flags {
+      file_name = None
+      label = None
+      test_flag_value = None
+      ignore_r_free_flags = False
+      disable_suitability_test = False
+      ignore_pdb_hexdigest = False
+      generate = False
+      fraction = 0.1
+      max_free = 2000
+      lattice_symmetry_max_delta = 5
+      use_lattice_symmetry = True
+      use_dataman_shells = False
+      n_shells = 20
+    }
+  }
+  experimental_phases {
+    file_name = None
+    labels = None
+  }
+  pdb {
+    file_name = /store/jkaczmarski/PTE_Ensemble_Refine/Campbell2016/001_R0_4PCP/input/001_R0_4PCP_refine_2.pdb
+  }
+  monomers {
+    file_name = /store/jkaczmarski/PTE_Ensemble_Refine/Campbell2016/001_R0_4PCP/input/4pcp.ligands.cif
+  }
+  maps {
+    map_file_name = None
+    d_min = None
+    map_coefficients_file_name = None
+    map_coefficients_label = None
+  }
+  sequence = None
+  scattering_table = wk1995 it1992 *n_gaussian neutron electron
+  wavelength = None
+  energy = None
+  use_experimental_phases = Auto
+  twin_law = Auto
+}
+ensemble_refinement {
+  cartesian_dynamics {
+    temperature = 300
+    number_of_steps = 10
+    time_step = 0.0005
+    initial_velocities_zero_fraction = 0
+    n_print = 100
+    verbose = -1
+    random_seed = None
+    n_collect = 10
+    stop_cm_motion = True
+    protein_thermostat = True
+  }
+  update_sigmaa_rfree = 0.001
+  ensemble_reduction = True
+  verbose = -1
+  output_file_prefix = None
+  gzip_final_model = True
+  random_seed = 2679941
+  nproc = 1
+  tx = 2.5
+  equilibrium_n_tx = 10
+  acquisition_block_n_tx = 2
+  number_of_acquisition_periods = 10
+  pdb_stored_per_block = 50
+  wxray_coupled_tbath = True
+  wxray_coupled_tbath_offset = 1.0
+  wxray = 1.0
+  tls_group_selections = None
+  ptls = 0.9
+  max_ptls_cycles = 25
+  isotropic_b_factor_model = False
+  pwilson = 0.8
+  set_occupancies = False
+  target_name = *ml mlhl ls_wunit_k1_fixed ls_wunit_k1
+  remove_alt_conf_from_input_pdb = True
+  scale_wrt_n_calc_start = False
+  output_running_kinetic_energy_in_occupancy_column = False
+  ordered_solvent_update = True
+  ordered_solvent_update_cycle = 25
+  harmonic_restraints {
+    selections = resname ZN or resname CAC
+    weight = 0.001
+    slack = 1.0
+  }
+  electron_density_maps {
+    apply_default_maps = True
+    map_coefficients {
+      map_type = None
+      format = *mtz phs
+      mtz_label_amplitudes = None
+      mtz_label_phases = None
+      fill_missing_f_obs = False
+      acentrics_scale = 2.0
+      centrics_pre_scale = 1.0
+      sharpening = False
+      sharpening_b_factor = None
+      exclude_free_r_reflections = False
+      isotropize = True
+      dev {
+        complete_set_up_to_d_min = False
+        aply_same_incompleteness_to_complete_set_at = randomly low high
+      }
+    }
+  }
+  mask {
+    use_asu_masks = True
+    solvent_radius = 1.11
+    shrink_truncation_radius = 0.9
+    grid_step_factor = 4.0
+    verbose = 1
+    mean_shift_for_mask_update = 0.001
+    ignore_zero_occupancy_atoms = True
+    ignore_hydrogens = False
+    n_radial_shells = 1
+    radial_shell_width = 1.5
+  }
+  ensemble_ordered_solvent {
+    diff_map_cutoff = 2.5
+    e_map_cutoff_keep = 0.5
+    e_map_cutoff_find = 0.5
+    tolerance = 0.9
+    ordered_solvent_map_to_model = True
+    output_residue_name = HOH
+    output_chain_id = S
+    output_atom_name = O
+    scattering_type = O
+    primary_map_type = mFo-DFmodel
+    primary_map_cutoff = 3.0
+    secondary_map_type = 2mFo-DFmodel
+    secondary_map_cutoff_keep = 1.0
+    secondary_map_cutoff_find = 1.0
+    h_bond_min_mac = 1.8
+    h_bond_min_sol = 1.8
+    h_bond_max = 3.2
+    new_solvent = *isotropic anisotropic
+    b_iso_min = 0.0
+    b_iso_max = 100.0
+    anisotropy_min = 0.1
+    b_iso = None
+    occupancy_min = 0.1
+    occupancy_max = 1.0
+    occupancy = 1.0
+    refine_occupancies = False
+    add_hydrogens = False
+    refilter = True
+    temperature = 300
+    seed = 8590185
+    preserved_solvent_minimum_distance = 7.0
+    find_peaks {
+      use_sigma_scaled_maps = True
+      resolution_factor = 1./4.
+      map_next_to_model {
+        min_model_peak_dist = 1.8
+        max_model_peak_dist = 3.0
+        min_peak_peak_dist = 1.8
+        use_hydrogens = False
+      }
+      max_number_of_peaks = None
+      peak_search {
+        peak_search_level = 1
+        max_peaks = 0
+        interpolate = True
+        min_distance_sym_equiv = None
+        general_positions_only = False
+        min_cross_distance = 1.8
+        min_cubicle_edge = 5
+      }
+    }
+  }
+  amber {
+    use_amber = False
+    topology_file_name = None
+    coordinate_file_name = None
+    order_file_name = None
+    wxc_factor = .2
+    restraint_wt = 0.
+    restraintmask = ''
+    reference_file_name = ''
+    bellymask = ''
+    qmmask = ''
+    qmcharge = 0
+    netcdf_trajectory_file_name = ''
+    print_amber_energies = False
+  }
+}
+refinement.geometry_restraints.edits {
+  excessive_bond_distance_limit = 10
+  bond {
+    action = *add delete change
+    atom_selection_1 = None
+    atom_selection_2 = None
+    symmetry_operation = None
+    distance_ideal = None
+    sigma = None
+    slack = None
+    limit = -1.0
+    top_out = False
+  }
+  angle {
+    action = *add delete change
+    atom_selection_1 = None
+    atom_selection_2 = None
+    atom_selection_3 = None
+    angle_ideal = None
+    sigma = None
+  }
+  dihedral {
+    action = *add delete change
+    atom_selection_1 = None
+    atom_selection_2 = None
+    atom_selection_3 = None
+    atom_selection_4 = None
+    angle_ideal = None
+    alt_angle_ideals = None
+    sigma = None
+    periodicity = 1
+  }
+  planarity {
+    action = *add delete change
+    atom_selection = None
+    sigma = None
+  }
+  parallelity {
+    action = *add delete change
+    atom_selection_1 = None
+    atom_selection_2 = None
+    sigma = 0.027
+    target_angle_deg = 0
+  }
+}
+gui {
+  job_title = None
+  output_dir = None
+}
+extra_restraints_file = None
+
+========================== Model and data statistics ==========================
+
+Data file                               : 001_R0_4PCP_refine_2.mtz
+Model file                              : 001_R0_4PCP_refine_2.pdb 
+
+
+TLS MUST BE IN ATOM RECORDS OF INPUT PDB
+
+
+PDB file name :  /store/jkaczmarski/PTE_Ensemble_Refine/Campbell2016/001_R0_4PCP/input/001_R0_4PCP_refine_2.pdb
+
+Removing alternative conformations
+All occupancies reset to 1.0
+New PDB :  /store/jkaczmarski/PTE_Ensemble_Refine/Campbell2016/001_R0_4PCP/input/001_R0_4PCP_refine_2_removed_alt_confs.pdb 
+
+Traceback (most recent call last):
+  File "/opt/phenix-1.16-3549/build/../modules/phenix/phenix/command_line/ensemble_refinement.py", line 6, in <module>
+    mmtbx.refinement.ensemble_refinement.run(sys.argv[1:])
+  File "/opt/phenix-1.16-3549/modules/cctbx_project/mmtbx/refinement/ensemble_refinement/__init__.py", line 1732, in run
+    pdb_inp = iotbx.pdb.input(file_name=pdb_file_removed_alt_confs)
+  File "/opt/phenix-1.16-3549/modules/cctbx_project/iotbx/pdb/__init__.py", line 783, in input
+    raise_sorry_if_format_error=raise_sorry_if_format_error).file_content()
+  File "/opt/phenix-1.16-3549/modules/cctbx_project/iotbx/pdb/__init__.py", line 682, in __init__
+    raise_sorry_if_format_error=raise_sorry_if_format_error)
+  File "/opt/phenix-1.16-3549/modules/cctbx_project/iotbx/pdb/__init__.py", line 734, in pdb_input
+    lines=flex.split_lines(smart_open.for_reading(file_name).read()))
+ValueError: file /store/jkaczmarski/PTE_Ensemble_Refine/Campbell2016/001_R0_4PCP/input/001_R0_4PCP_refine_2_removed_alt_confs.pdb, line 10639:
+  ANISOU 5281  O   HOH G2555     1486   2494   1745     44    -43    
