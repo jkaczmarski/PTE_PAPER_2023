@@ -1,0 +1,357 @@
+
+USER = mahakaran
+PID = 68469
+Date 2019-10-08 Time 15:45:38 AEDT +1100 (1570509938.13 s)
+
+-------------------------------------------------------------------------------
+phenix.ensemble_refinement
+-------------------------------------------------------------------------------
+
+
+======================== Ensemble refinement parameters =======================
+
+input {
+  xray_data {
+    file_name = /store/mahakaran/PTE_EnsembleRefinement/S2_PTE/EnsembleRefinement/S2_PTE_refine_3.mtz
+    labels = None
+    high_resolution = None
+    low_resolution = None
+    outliers_rejection = True
+    french_wilson_scale = True
+    french_wilson {
+      max_bins = 60
+      min_bin_size = 40
+    }
+    sigma_fobs_rejection_criterion = None
+    sigma_iobs_rejection_criterion = None
+    ignore_all_zeros = True
+    force_anomalous_flag_to_be_equal_to = None
+    convert_to_non_anomalous_if_ratio_pairs_lone_less_than_threshold = 0.5
+    r_free_flags {
+      file_name = None
+      label = None
+      test_flag_value = None
+      ignore_r_free_flags = False
+      disable_suitability_test = False
+      ignore_pdb_hexdigest = False
+      generate = False
+      fraction = 0.1
+      max_free = 2000
+      lattice_symmetry_max_delta = 5
+      use_lattice_symmetry = True
+      use_dataman_shells = False
+      n_shells = 20
+    }
+  }
+  experimental_phases {
+    file_name = None
+    labels = None
+  }
+  pdb {
+    file_name = /store/mahakaran/PTE_EnsembleRefinement/S2_PTE/EnsembleRefinement/S2_PTE_refine_3.pdb
+  }
+  monomers {
+    file_name = None
+  }
+  maps {
+    map_file_name = None
+    d_min = None
+    map_coefficients_file_name = None
+    map_coefficients_label = None
+  }
+  sequence = None
+  scattering_table = wk1995 it1992 *n_gaussian neutron electron
+  wavelength = None
+  energy = None
+  use_experimental_phases = Auto
+  twin_law = Auto
+}
+ensemble_refinement {
+  cartesian_dynamics {
+    temperature = 300
+    number_of_steps = 10
+    time_step = 0.0005
+    initial_velocities_zero_fraction = 0
+    n_print = 100
+    verbose = -1
+    random_seed = None
+    n_collect = 10
+    stop_cm_motion = True
+    protein_thermostat = True
+  }
+  update_sigmaa_rfree = 0.001
+  ensemble_reduction = True
+  verbose = -1
+  output_file_prefix = None
+  gzip_final_model = True
+  random_seed = 2679941
+  nproc = 1
+  tx = 1.0
+  equilibrium_n_tx = 10
+  acquisition_block_n_tx = 2
+  number_of_acquisition_periods = 10
+  pdb_stored_per_block = 50
+  wxray_coupled_tbath = True
+  wxray_coupled_tbath_offset = 5
+  wxray = 1.0
+  tls_group_selections = None
+  ptls = 0.9
+  max_ptls_cycles = 25
+  isotropic_b_factor_model = False
+  pwilson = 0.8
+  set_occupancies = False
+  target_name = *ml mlhl ls_wunit_k1_fixed ls_wunit_k1
+  remove_alt_conf_from_input_pdb = True
+  scale_wrt_n_calc_start = False
+  output_running_kinetic_energy_in_occupancy_column = False
+  ordered_solvent_update = True
+  ordered_solvent_update_cycle = 25
+  harmonic_restraints {
+    selections = resname ZN or resname CAC or resname MPD
+    weight = 0.001
+    slack = 1.0
+  }
+  electron_density_maps {
+    apply_default_maps = True
+    map_coefficients {
+      map_type = None
+      format = *mtz phs
+      mtz_label_amplitudes = None
+      mtz_label_phases = None
+      fill_missing_f_obs = False
+      acentrics_scale = 2.0
+      centrics_pre_scale = 1.0
+      sharpening = False
+      sharpening_b_factor = None
+      exclude_free_r_reflections = False
+      isotropize = True
+      dev {
+        complete_set_up_to_d_min = False
+        aply_same_incompleteness_to_complete_set_at = randomly low high
+      }
+    }
+  }
+  mask {
+    use_asu_masks = True
+    solvent_radius = 1.11
+    shrink_truncation_radius = 0.9
+    grid_step_factor = 4.0
+    verbose = 1
+    mean_shift_for_mask_update = 0.001
+    ignore_zero_occupancy_atoms = True
+    ignore_hydrogens = False
+    n_radial_shells = 1
+    radial_shell_width = 1.5
+  }
+  ensemble_ordered_solvent {
+    diff_map_cutoff = 2.5
+    e_map_cutoff_keep = 0.5
+    e_map_cutoff_find = 0.5
+    tolerance = 0.9
+    ordered_solvent_map_to_model = True
+    output_residue_name = HOH
+    output_chain_id = S
+    output_atom_name = O
+    scattering_type = O
+    primary_map_type = mFo-DFmodel
+    primary_map_cutoff = 3.0
+    secondary_map_type = 2mFo-DFmodel
+    secondary_map_cutoff_keep = 1.0
+    secondary_map_cutoff_find = 1.0
+    h_bond_min_mac = 1.8
+    h_bond_min_sol = 1.8
+    h_bond_max = 3.2
+    new_solvent = *isotropic anisotropic
+    b_iso_min = 0.0
+    b_iso_max = 100.0
+    anisotropy_min = 0.1
+    b_iso = None
+    occupancy_min = 0.1
+    occupancy_max = 1.0
+    occupancy = 1.0
+    refine_occupancies = False
+    add_hydrogens = False
+    refilter = True
+    temperature = 300
+    seed = 5120044
+    preserved_solvent_minimum_distance = 7.0
+    find_peaks {
+      use_sigma_scaled_maps = True
+      resolution_factor = 1./4.
+      map_next_to_model {
+        min_model_peak_dist = 1.8
+        max_model_peak_dist = 3.0
+        min_peak_peak_dist = 1.8
+        use_hydrogens = False
+      }
+      max_number_of_peaks = None
+      peak_search {
+        peak_search_level = 1
+        max_peaks = 0
+        interpolate = True
+        min_distance_sym_equiv = None
+        general_positions_only = False
+        min_cross_distance = 1.8
+        min_cubicle_edge = 5
+      }
+    }
+  }
+}
+refinement.geometry_restraints.edits {
+  excessive_bond_distance_limit = 10
+  bond {
+    action = *add delete change
+    atom_selection_1 = None
+    atom_selection_2 = None
+    symmetry_operation = None
+    distance_ideal = None
+    sigma = None
+    slack = None
+    limit = -1.0
+    top_out = False
+  }
+  angle {
+    action = *add delete change
+    atom_selection_1 = None
+    atom_selection_2 = None
+    atom_selection_3 = None
+    angle_ideal = None
+    sigma = None
+  }
+  dihedral {
+    action = *add delete change
+    atom_selection_1 = None
+    atom_selection_2 = None
+    atom_selection_3 = None
+    atom_selection_4 = None
+    angle_ideal = None
+    alt_angle_ideals = None
+    sigma = None
+    periodicity = 1
+  }
+  planarity {
+    action = *add delete change
+    atom_selection = None
+    sigma = None
+  }
+  parallelity {
+    action = *add delete change
+    atom_selection_1 = None
+    atom_selection_2 = None
+    sigma = 0.027
+    target_angle_deg = 0
+  }
+}
+gui {
+  job_title = None
+  output_dir = None
+}
+extra_restraints_file = None
+
+========================== Model and data statistics ==========================
+
+Data file                               : S2_PTE_refine_3.mtz
+Model file                              : S2_PTE_refine_3.pdb 
+
+
+TLS MUST BE IN ATOM RECORDS OF INPUT PDB
+
+
+PDB file name :  /store/mahakaran/PTE_EnsembleRefinement/S2_PTE/EnsembleRefinement/S2_PTE_refine_3.pdb
+
+Removing alternative conformations
+All occupancies reset to 1.0
+New PDB :  /store/mahakaran/PTE_EnsembleRefinement/S2_PTE/EnsembleRefinement/S2_PTE_refine_3_removed_alt_confs.pdb 
+
+  Monomer Library directory:
+    "/opt/phenix-1.16-3549/modules/chem_data/mon_lib"
+  Total number of atoms: 10539
+  Number of models: 1
+  Model: ""
+    Number of chains: 6
+    Chain: "A"
+      Number of atoms: 4848
+      Number of conformers: 1
+      Conformer: ""
+        Number of residues, atoms: 314, 4848
+          Classifications: {'peptide': 314}
+          Link IDs: {'PTRANS': 14, 'TRANS': 299}
+          Chain breaks: 1
+    Chain: "G"
+      Number of atoms: 5025
+      Number of conformers: 1
+      Conformer: ""
+        Number of residues, atoms: 329, 5025
+          Classifications: {'peptide': 329}
+          Link IDs: {'PTRANS': 14, 'TRANS': 314}
+    Chain: "A"
+      Number of atoms: 101
+      Number of conformers: 1
+      Conformer: ""
+        Number of residues, atoms: 7, 101
+          Unusual residues: {'CAC': 1, 'MPD': 4, ' ZN': 2}
+          Unexpected atoms: {'CAC,H13': 1, 'CAC,H12': 1, 'CAC,H11': 1, 'CAC,H22': 1, 'CAC,H23': 1, 'CAC,H21': 1}
+          Classifications: {'undetermined': 7}
+          Link IDs: {None: 6}
+    Chain: "G"
+      Number of atoms: 79
+      Number of conformers: 1
+      Conformer: ""
+        Number of residues, atoms: 6, 79
+          Unusual residues: {'CAC': 1, 'MPD': 3, ' ZN': 2}
+          Unexpected atoms: {'CAC,H13': 1, 'CAC,H12': 1, 'CAC,H11': 1, 'CAC,H22': 1, 'CAC,H23': 1, 'CAC,H21': 1}
+          Classifications: {'undetermined': 6}
+          Link IDs: {None: 5}
+    Chain: "A"
+      Number of atoms: 217
+      Number of conformers: 1
+      Conformer: ""
+        Number of residues, atoms: 217, 217
+          Classifications: {'water': 217}
+          Link IDs: {None: 216}
+    Chain: "G"
+      Number of atoms: 269
+      Number of conformers: 1
+      Conformer: ""
+        Number of residues, atoms: 269, 269
+          Classifications: {'water': 269}
+          Link IDs: {None: 268}
+  Number of atoms with unknown nonbonded energy type symbols: 12
+    "HETATM 9881  H11 CAC A2403 .*.     H  "
+    "HETATM 9882  H12 CAC A2403 .*.     H  "
+    "HETATM 9883  H13 CAC A2403 .*.     H  "
+    "HETATM 9884  H21 CAC A2403 .*.     H  "
+    "HETATM 9885  H22 CAC A2403 .*.     H  "
+    "HETATM 9886  H23 CAC A2403 .*.     H  "
+    "HETATM 9982  H11 CAC G2403 .*.     H  "
+    "HETATM 9983  H12 CAC G2403 .*.     H  "
+    "HETATM 9984  H13 CAC G2403 .*.     H  "
+    "HETATM 9985  H21 CAC G2403 .*.     H  "
+    ... (remaining 2 not shown)
+  Time building chain proxies: 1.76, per 1000 atoms: 0.17
+  Number of scatterers: 10539
+  At special positions: 1
+  Unit cell: (85.233, 85.476, 88.215, 90, 90, 90)
+  Space group: P 21 21 2 (No. 18)
+  Number of sites at special positions: 1
+    Minimum distance between symmetrically equivalent sites: 0.5
+    Label                   Mult   Shift    Fractional coordinates
+    pdb=" O   HOH G2738 "     2    0.002 (  0.5000   0.0000   0.0131) original
+                          site sym 2     (  0.5000   0.0000   0.0131) exact
+                                                   1/2,0,z
+  Number of scattering types: 7
+    Type Number    sf(0)
+     As      2     32.98
+     Zn      4     29.99
+     S      12     16.00
+     O    1424      8.00
+     N     873      7.00
+     C    3147      6.00
+     H    5077      1.00
+    sf(0) = scattering factor at diffraction angle 0.
+Sorry: Fatal problems interpreting model file:
+  Number of atoms with unknown nonbonded energy type symbols: 12
+    Please edit the model file to resolve the problems and/or supply a
+    CIF file with matching restraint definitions, along with
+    apply_cif_modification and apply_cif_link parameter definitions
+    if necessary.

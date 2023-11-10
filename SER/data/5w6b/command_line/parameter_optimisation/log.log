@@ -1,0 +1,10 @@
+In this directory, we seek to optimise the refinement parameters p(TLS), tau_x,
+and Tbath. We run through the follwing combinations:
+p=0.8  # 0.6, 0.7, 0.8, 0.9, 1.0
+w=2.5  # 2.5, 5, 10
+t=0.3  # 0.3, 0.6, 1.
+
+This makes for a total of 45 runs. Parameter optimisation is performed
+for the 4kxq structure. The making of the directories is automated using a
+Python jupyter notebook. The refine script is modified appropriately in
+each directory.
